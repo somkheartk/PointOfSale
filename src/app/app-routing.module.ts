@@ -6,7 +6,6 @@ const routes: Routes = [
 
   { path: 'first-component', component: UserComponent }
 
-
 ];
 
 @NgModule({
