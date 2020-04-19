@@ -5,7 +5,7 @@ const customerSchema = new Schema({
   customer_id: String,
   customer_name: String,
   customer_address: String,
-  tags: [String]
+  customer_password : String
 })
 
 const CustomerModel = mongoose.model('Customer', customerSchema)
