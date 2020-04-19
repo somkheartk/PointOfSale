@@ -17,12 +17,10 @@ const CustomerSchema = new mongoose.Schema({
 });
 const customerModel = mongoose.model("Customer", CustomerSchema);
 const customer=new customerModel({name:"somkheart",lastname:"kraisin55"})
-app.get("/addCustomer",async function(req,res){
+app.get("/addcustomer",async function(req,res){
   await customer.save();
   res.send(customer);
   console.log(customer)
-  mongoose.connection.close()
-
 });
 //app.use(foodRouter);
 app.use(express.json()); // Make sure it comes back as json
