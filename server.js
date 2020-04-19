@@ -4,15 +4,9 @@ const mongoose = require('mongoose');
 
 const app = express();
 app.use(express.json()); // Make sure it comes back as json
-mongoose.connect('mongodb+srv://pos:k1Y6gLecg7h5YR2A@cluster0-mtjby.gcp.mongodb.net/pos?retryWrites=true&w=majority',{useNewUrlParser:true});
+mongoose.connect('mongodb+srv://pos:k1Y6gLecg7h5YR2A@cluster0-mtjby.gcp.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser:true});
 
-var db = mongoose.connection;
- 
-db.on('error', console.error.bind(console, 'connection error:'));
- 
-db.once('open', function() {
-    console.log("Connection Successful!");
-});
+
 const CustomerSchema = new mongoose.Schema({
   name: {
     type: String
@@ -27,6 +21,8 @@ app.get("/addCustomer",async function(req,res){
   await customer.save();
   res.send(customer);
   console.log(customer)
+  mongoose.connection.close()
+
 });
 //app.use(foodRouter);
 app.use(express.json()); // Make sure it comes back as json
