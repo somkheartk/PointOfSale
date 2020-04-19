@@ -1,14 +1,11 @@
 const express = require('express');
-const path = require('path');
+const mongoose = require('mongoose');
+//const foodRouter = require('./routes/foodRoutes.js');
+
 const app = express();
+app.use(express.json()); // Make sure it comes back as json
+mongoose.connect('mongodb+srv://pos:zljNjYO2rJ3RKfRf@cluster0-mtjby.gcp.mongodb.net/pos?retryWrites=true&w=majority',{useNewUrlParser:true});
 
-// Serve static files....
-app.use(express.static(__dirname + '/dist/PointOfSale'));
-
-// Send all requests to index.html
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/dist/PointOfSale/index.html'));
-});
-
-// default Heroku PORT
-app.listen(process.env.PORT || 3000);
+//app.use(foodRouter);
+app.use(express.json()); // Make sure it comes back as json
+app.listen(3000, () => { console.log('Server is running...') });
