@@ -6,7 +6,9 @@ const app = express();
 app.use(express.json()); // Make sure it comes back as json
 mongoose.connect('mongodb+srv://pos:k1Y6gLecg7h5YR2A@cluster0-mtjby.gcp.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser:true});
 
-
+mongoose.connection.on('error',function (err) {  
+  console.log('Mongoose default connection error: ' + err);
+}); 
 const CustomerSchema = new mongoose.Schema({
   name: {
     type: String

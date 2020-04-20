@@ -7,4 +7,4 @@ module.exports = {
   secret: process.env.NODE_ENV === 'production' ? process.env.SECRET : 'my-secret',
   mongodbUri: process.env.MONGODB_URI,
   pageLimit: process.env.PAGE_LIMIT || 15
-}6
+}
