@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(express.json()); // Make sure it comes back as json
 
 // Api Mapping
-app.use(`/api/cusotomer`,customerRoute)
+app.use(`/api/customer`,customerRoute)
 app.use(`/api/product`,productRoute)
 
 
